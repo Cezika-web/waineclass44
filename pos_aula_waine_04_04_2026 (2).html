@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Waine — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Soft Skills, Present Perfect e Used To</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Waine &nbsp;•&nbsp;
+            <strong>Data:</strong> 04/04/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da revisão de gramática e da conversa sobre soft skills, liderança e mercado de trabalho.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              A aula começou com uma <strong>revisão de pontos gramaticais</strong> que já vinham aparecendo nas atividades, principalmente
+              <strong>present perfect</strong>, <strong>used to / didn’t use to</strong> e <strong>be used to</strong>. Retomamos exemplos como
+              <em>I have been to Japan</em>, o uso de <em>never</em> e <em>recently</em>, além da diferença entre falar de um hábito do passado
+              e falar de algo a que a pessoa está ou não acostumada no presente.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Também corrigimos estruturas importantes que apareceram na fala e nas atividades, como
+              <em>my dog was born</em>, <em>one interesting thing</em> e <em>I spoke to her</em>. Um ponto importante da revisão foi perceber
+              que, quando a estrutura é <em>be used to + noun / verb-ing</em>, o verbo <strong>be</strong> é indispensável e o sentido muda
+              completamente em relação a <em>used to</em>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Na segunda parte da aula, o foco foi <strong>soft skills x hard skills</strong>. Conversamos sobre o significado de
+              <em>soft skills</em> no mercado de trabalho, com exemplos como <em>resilience, adaptability, communication, teamwork</em> e
+              <em>leadership</em>. O aluno conseguiu relacionar o tema com a própria realidade profissional, discutindo avaliação de líderes,
+              respeito da equipe, tomada de decisão e a diferença entre conhecimento técnico e habilidade interpessoal.
+            </p>
+            <p style="margin:0;">
+              Ao longo da conversa, também trabalhamos vocabulário útil como <em>teachable</em>, <em>doable</em>, <em>evaluate</em>,
+              <em>whether ... or not</em>, <em>throughout life</em> e expressões para opinião e hipótese. Foi uma aula com bastante fala,
+              boas conexões com situações reais de trabalho e correções finas de estrutura para deixar a comunicação mais natural.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Soft skills</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) habilidades comportamentais / interpessoais</em><br>
+                <small>Resilience is an important soft skill.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Be used to</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) estar acostumado a</em><br>
+                <small>I am used to long commutes.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Gramática revisada</h3>
+            <ul>
+              <li><strong>have been to</strong> – já ter ido / já ter estado em</li>
+              <li><strong>never</strong> – nunca</li>
+              <li><strong>recently</strong> – recentemente</li>
+              <li><strong>used to</strong> – costume do passado que não acontece mais</li>
+              <li><strong>didn’t use to</strong> – não costumava</li>
+              <li><strong>be used to</strong> – estar acostumado a</li>
+              <li><strong>long commutes</strong> – deslocamentos longos</li>
+              <li><strong>born</strong> – nascido(a), usado com o verbo <em>be</em></li>
+            </ul>
+
+            <h3>Vocabulário principal da conversa</h3>
+            <ul>
+              <li><strong>soft skills</strong> – habilidades comportamentais / interpessoais</li>
+              <li><strong>hard skills</strong> – habilidades técnicas</li>
+              <li><strong>resilience</strong> – resiliência</li>
+              <li><strong>adaptability</strong> – adaptabilidade</li>
+              <li><strong>leadership</strong> – liderança</li>
+              <li><strong>teamwork</strong> – trabalho em equipe</li>
+              <li><strong>communication</strong> – comunicação</li>
+              <li><strong>evaluate</strong> – avaliar</li>
+              <li><strong>teachable</strong> – ensinável</li>
+              <li><strong>doable</strong> – possível de fazer / viável</li>
+              <li><strong>strict</strong> – rígido</li>
+              <li><strong>bench</strong> – banco de reservas</li>
+              <li><strong>quarter-finals</strong> – quartas de final</li>
+              <li><strong>sponsored by</strong> – patrocinado por</li>
+            </ul>
+
+            <h3>Expressões e estruturas úteis</h3>
+            <ul>
+              <li><strong>whether ... or not</strong> – seja... ou não / independentemente de</li>
+              <li><strong>throughout life</strong> – ao longo da vida</li>
+              <li><strong>speak to someone</strong> – falar com alguém</li>
+              <li><strong>deal with</strong> – lidar com</li>
+              <li><strong>score a goal</strong> – fazer um gol</li>
+              <li><strong>be promoted</strong> – ser promovido</li>
+              <li><strong>take a leadership position</strong> – assumir uma posição de liderança</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>I have been to Japan.</li>
+              <li>I have never been to Croatia.</li>
+              <li>I have recently started a new job.</li>
+              <li>My dog was born in 2004.</li>
+              <li>That is one interesting thing.</li>
+              <li>I spoke to her and said that Danilo would score a goal.</li>
+              <li>My brother is not used to using the new system.</li>
+              <li>I am used to waking up early.</li>
+              <li>Resilience is the most important soft skill for me.</li>
+              <li>Hard skills are easier to evaluate than soft skills.</li>
+              <li>Soft skills are important throughout life.</li>
+              <li>We need a strong leader to deal with difficult situations.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>My dog born</strong> ❌ → <strong>My dog was born</strong> ✅<br>
+                <span style="color:var(--muted);">Com <em>born</em>, precisamos do verbo <em>be</em>.</span>
+              </li>
+              <li><strong>one thing interesting</strong> ❌ → <strong>one interesting thing</strong> ✅<br>
+                <span style="color:var(--muted);">A ordem natural em inglês é adjetivo + substantivo.</span>
+              </li>
+              <li><strong>I spoke for my wife</strong> ❌ → <strong>I spoke to my wife</strong> ✅<br>
+                <span style="color:var(--muted);"><em>Speak to</em> = falar com alguém. <em>Speak for</em> tem outro sentido.</span>
+              </li>
+              <li><strong>Felipão don’t call Romário</strong> ❌ → <strong>Felipão didn’t call Romário</strong> ✅<br>
+                <span style="color:var(--muted);">No passado negativo, usamos <em>didn’t + verbo base</em>.</span>
+              </li>
+              <li><strong>I didn’t use to long commutes</strong> ❌ → <strong>I am not used to long commutes</strong> ✅<br>
+                <span style="color:var(--muted);">Aqui o sentido era “não estou acostumado”, não “não costumava”.</span>
+              </li>
+              <li><strong>My brother not used to using...</strong> ❌ → <strong>My brother is not used to using...</strong> ✅<br>
+                <span style="color:var(--muted);">Na estrutura <em>be used to</em>, o verbo <em>be</em> é obrigatório.</span>
+              </li>
+              <li><strong>weather you realize it or not</strong> ❌ → <strong>whether you realize it or not</strong> ✅<br>
+                <span style="color:var(--muted);"><em>Whether ... or not</em> é a estrutura correta para alternativas.</span>
+              </li>
+              <li><strong>through out</strong> / confusão de pronúncia ❌ → <strong>throughout</strong> ✅<br>
+                <span style="color:var(--muted);">Usado com o sentido de “ao longo de”, como em <em>throughout life</em>.</span>
+              </li>
+              <li><strong>learnable</strong> ficou compreensível, mas <strong>teachable</strong> foi a melhor escolha no contexto ✅<br>
+                <span style="color:var(--muted);">Na discussão sobre hard skills, a ideia era algo que pode ser ensinado.</span>
+              </li>
+              <li><strong>underestimate / strict / thin line</strong> receberam ajuste de vocabulário e pronúncia ✅<br>
+                <span style="color:var(--muted);">Foram pontos finos para deixar a fala mais natural e precisa.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/M76SH-UnKvE"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">44%</span></td>
+                <td class="talk-time">~26 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Waine</span></td>
+                <td><span class="talk-percent">56%</span></td>
+                <td class="talk-time">~34 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Ler o pós-aula de 2 a 3x na semana.</li>
+            </ul>
+            <p style="margin:6px 0 0 0;">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn secondary"
+                style="padding:8px 12px;border-radius:8px;font-weight:700;"
+              >
+                📄 Revisar pós-aula
+              </a>
+            </p>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
